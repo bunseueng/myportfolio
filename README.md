@@ -1,12 +1,14 @@
-![Logo](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/th5xamgrr6se0x5ro4g6.png)
+<div align="center">![Logo](/public/favicon-48x48.png)</div>
 
-[bunseueng.vercel.app](https://bunseueng.vercel.app)
+<div align="center">
+  <a href="https://bunseueng.vercel.app" target="_blank">bunseueng.vercel.app</a>
+</div>
 
 ##
 
 This portfolio is a collection of my work as a web developer. It includes my personal projects, blog posts, and the technologies I’ve worked with, demonstrating my abilities in both front-end and back-end development.
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](/app/og.PNG)
 
 📍 Forking this repo (PLEASE READ!)
 I believe in keeping my work open-source and available for others to learn from and build upon. However, attribution is important.
@@ -33,14 +35,14 @@ You can check if Node.js and npm are installed by running the following commands
   npm -v
 ```
 
-If they are not installed, you can download and install Node.js from [nodejs.org](nodejs.org).
+If they are not installed, you can download and install Node.js from [nodejs.org](https://nodejs.org).
 
 ## 1. Clone the Repository
 
 Start by cloning the repository to your local machine:
 
 ```bash
-  git clone https://github.com/your-username/your-repo-name.git
+  git clone https://github.com/bunseujjy/myportfolio.git
 ```
 
 ## 2. Install Dependencies
