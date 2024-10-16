@@ -40,7 +40,7 @@ export const metadata: Metadata = {
       "Explore the portfolio of a passionate web developer specializing in Next.js, React, and JavaScript. Check out my projects and experience in building efficient, responsive web applications.",
     images: [
       {
-        url: "/og.PNG",
+        url: "/opengraph-image.png",
         width: 1200,
         height: 630,
         alt: "Portfolio",
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     title: "Bunseu's Portfolio",
     description:
       "Explore the portfolio of a passionate web developer specializing in Next.js, React, and JavaScript. Check out my projects and experience in building efficient, responsive web applications.",
-    images: ["/og.PNG"],
+    images: ["/opengraph-image.png"],
     site: "@bunseueng",
     creator: "@EngBunseu",
   },

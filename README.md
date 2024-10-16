@@ -8,7 +8,7 @@
 
 This portfolio is a collection of my work as a web developer. It includes my personal projects, blog posts, and the technologies I’ve worked with, demonstrating my abilities in both front-end and back-end development.
 
-![App Screenshot](/app/og.PNG)
+![App Screenshot](/app/opengraph-image.png)
 
 📍 Forking this repo (PLEASE READ!)
 
