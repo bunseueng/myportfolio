@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+![Logo](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/th5xamgrr6se0x5ro4g6.png)
 
-## Getting Started
+[bunseueng.vercel.app](https://bunseueng.vercel.app)
 
-First, run the development server:
+##
+
+This portfolio is a collection of my work as a web developer. It includes my personal projects, blog posts, and the technologies I’ve worked with, demonstrating my abilities in both front-end and back-end development.
+
+![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+📍 Forking this repo (PLEASE READ!)
+I believe in keeping my work open-source and available for others to learn from and build upon. However, attribution is important.
+
+While I’m happy for you to use this code for your personal or professional projects, I ask that you give credit where credit is due. Please don't claim my work as your own. I’ve spent a significant amount of time and effort designing and developing this version of my site, and I’m proud of the work I’ve put into it!
+
+Feel free to fork the repository and customize it for your own needs, but remember to acknowledge the original source. 🙌
+
+TL;DR
+
+Please give me proper credit by linking back to bunseueng.vercel.app Thanks!
+
+## 🛠 Installation & Set Up
+
+Prerequisites
+Before you begin, make sure you have the following software installed on your machine:
+
+Node.js (Recommended: LTS version)
+npm (Node package manager, comes with Node.js)
+You can check if Node.js and npm are installed by running the following commands:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+  node -v
+  npm -v
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+If they are not installed, you can download and install Node.js from [nodejs.org](nodejs.org).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 1. Clone the Repository
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Start by cloning the repository to your local machine:
 
-## Learn More
+```bash
+  git clone https://github.com/your-username/your-repo-name.git
+```
 
-To learn more about Next.js, take a look at the following resources:
+## 2. Install Dependencies
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Navigate to the project directory and install the required dependencies:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+   npm install
+```
 
-## Deploy on Vercel
+This will install all the necessary packages listed in the package.json file.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 3. Run the Development Server
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Once the dependencies are installed and environment variables are set up, start the development server:
+
+```bash
+   npm run dev
+```
+
+The server will start on http://localhost:3000. Open this URL in your browser to view the project locally.
+
+## 4. Build and Deploy
+
+To create an optimized build for production, run the following command:
+
+```bash
+   npm run build
+```
+
+After the build is complete, you can start the production server with:
+
+```bash
+   npm run start
+```
+
+Alternatively, you can deploy the project using platforms like Vercel, Netlify, or any other hosting service that supports Node.js applications.
