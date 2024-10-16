@@ -1,4 +1,4 @@
-<div align="center">![Logo](/app/favicon-48x48.png)</div>
+<div align="center"><img src="/app/favicon-48x48.png" alt="Portfolio"/></div>
 
 <div align="center">
 <a href="https://bunseueng.vercel.app" target="_blank" rel="noopener noreferrer">bunseueng.vercel.app</a>
