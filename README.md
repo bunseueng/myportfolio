@@ -1,7 +1,7 @@
-<div align="center">![Logo](/public/favicon-48x48.png)</div>
+<div align="center">![Logo](/app/favicon-48x48.png)</div>
 
 <div align="center">
-  <a href="https://bunseueng.vercel.app" target="_blank">bunseueng.vercel.app</a>
+<a href="https://bunseueng.vercel.app" target="_blank" rel="noopener noreferrer">bunseueng.vercel.app</a>
 </div>
 
 ##
@@ -11,6 +11,7 @@ This portfolio is a collection of my work as a web developer. It includes my per
 ![App Screenshot](/app/og.PNG)
 
 📍 Forking this repo (PLEASE READ!)
+
 I believe in keeping my work open-source and available for others to learn from and build upon. However, attribution is important.
 
 While I’m happy for you to use this code for your personal or professional projects, I ask that you give credit where credit is due. Please don't claim my work as your own. I’ve spent a significant amount of time and effort designing and developing this version of my site, and I’m proud of the work I’ve put into it!
