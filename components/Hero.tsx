@@ -19,7 +19,7 @@ export default function Hero() {
   return (
     <section className="relative w-full h-screen flex items-center justify-center overflow-hidden">
       <BackgroundBeams className="absolute inset-0" />
-      <div className="relative z-10 w-full max-w-6xl mx-auto px-6 py-12 md:py-24">
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-14 md:px-6 md:py-24">
         <div className="flex flex-col md:flex-row items-center justify-between">
           <motion.div
             className="w-full mb-8 md:mb-0"
@@ -28,18 +28,18 @@ export default function Hero() {
             transition={{ duration: 0.5 }}
           >
             <div>
-              <p className="text-white dark:text-neutral-200 font-semibold mb-2">
-                Hi, My name is{" "}
+              <p className="text-[#64ffda] dark:text-neutral-200 text-xl font-semibold mb-5 md:mb-0">
+                Hi, my name is{" "}
               </p>
               <p
-                className="font-bold text-[#ccd6f6]"
+                className="font-bold text-[#ccd6f6] mb-1"
                 style={{ fontSize: "clamp(40px, 8vw, 80px)" }}
               >
                 Eng Bunseu 👋
               </p>
               <TypewriterEffectSmooth words={words} />
               <div>
-                <p className="max-w-[540px] text-md text-[#8892b0] mb-8">
+                <p className="max-w-[540px] text-lg text-[#8892b0] mt-5 mb-10">
                   I create beautiful, responsive, and user-friendly web
                   applications. With 4 years of experience, I&#39;m passionate
                   about turning ideas into reality through code.

@@ -5,19 +5,20 @@ import MouseTrackingBackground from "@/components/ui/BackgroundGradient";
 import { Roboto, Noto_Sans } from "next/font/google";
 import LoadingAnimation from "@/components/ui/Loading";
 
-export const roboto = Roboto({
+const roboto = Roboto({
   weight: ["400", "700"],
   subsets: ["latin"],
   display: "swap",
 });
 
-export const notoSans = Noto_Sans({
+const notoSans = Noto_Sans({
   weight: ["400", "700"],
   subsets: ["latin"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://bunseueng.vercel.app"),
   title: "Bunseu's Portfolio",
   description:
     "Explore the portfolio of a passionate web developer specializing in Next.js, React, and JavaScript. Check out my projects and experience in building efficient, responsive web applications.",
