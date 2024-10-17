@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
+import { motion } from "framer-motion";
 
 export default function MouseTrackingBackground({
   children,
@@ -9,25 +10,25 @@ export default function MouseTrackingBackground({
 }) {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
+  const updateMousePosition = useCallback((ev: MouseEvent) => {
+    setMousePosition({ x: ev.clientX, y: ev.clientY });
+  }, []);
+
   useEffect(() => {
-    const updateMousePosition = (ev: MouseEvent) => {
-      setMousePosition({ x: ev.clientX, y: ev.clientY });
-    };
-
     window.addEventListener("mousemove", updateMousePosition);
-
     return () => {
       window.removeEventListener("mousemove", updateMousePosition);
     };
-  }, []);
+  }, [updateMousePosition]);
 
   return (
     <div className="relative min-h-screen w-full overflow-x-hidden bg-[#050d1a]">
-      <div
-        className="pointer-events-none fixed inset-0 z-0 transition-opacity duration-300"
-        style={{
+      <motion.div
+        className="pointer-events-none fixed inset-0 z-0"
+        animate={{
           background: `radial-gradient(600px at ${mousePosition.x}px ${mousePosition.y}px, rgba(29, 78, 216, 0.18), transparent 80%)`,
         }}
+        transition={{ type: "tween", duration: 0.2 }}
       />
       <div
         className="fixed inset-0 z-0"

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Cursor from "@/components/ui/Cursor";
 import MouseTrackingBackground from "@/components/ui/BackgroundGradient";
 import { Roboto, Noto_Sans } from "next/font/google";
 import LoadingAnimation from "@/components/ui/Loading";
@@ -19,7 +18,10 @@ const notoSans = Noto_Sans({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://bunseueng.vercel.app"),
-  title: "Bunseu's Portfolio",
+  title: {
+    default: "Bunseu's Portfolio",
+    template: "%s - Bunseu's Portfolio",
+  },
   description:
     "Explore the portfolio of a passionate web developer specializing in Next.js, React, and JavaScript. Check out my projects and experience in building efficient, responsive web applications.",
   icons: {
@@ -72,9 +74,6 @@ export default function RootLayout({
       <body>
         <LoadingAnimation>
           <MouseTrackingBackground>
-            <div className="invisible md:visible">
-              <Cursor />
-            </div>
             <main className="min-h-screen text-gray-100 selection:bg-teal-300 selection:text-teal-900">
               {children}
             </main>

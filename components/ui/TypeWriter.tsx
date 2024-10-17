@@ -125,7 +125,7 @@ export const TypewriterEffectSmooth = ({
                 <span
                   key={`char-${index}`}
                   className={cn(` `, word.className)}
-                  style={{ fontSize: "clamp(20px, 4vw, 40px)" }}
+                  style={{ fontSize: "clamp(10px, 3vw, 40px)" }}
                 >
                   {char}
                 </span>

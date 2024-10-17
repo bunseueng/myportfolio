@@ -1,13 +1,13 @@
 "use client";
 
-import { recentProjects } from "@/app/constants/data";
 import React, { useRef } from "react";
-import { PinContainer } from "./ui/PinCard";
-import { IconLocation } from "@tabler/icons-react";
 import { motion, useInView, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { IconLocation } from "@tabler/icons-react";
+import { PinContainer } from "./ui/PinCard";
 import { useScrollAnimation } from "./Tech";
+import { recentProjects } from "@/app/constants/data";
 
 const RecentProjects = () => {
   const ref = useRef(null);

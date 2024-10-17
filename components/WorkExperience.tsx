@@ -2,15 +2,15 @@
 
 import React, { useRef } from "react";
 import { motion, useInView, useTransform } from "framer-motion";
+import Image from "next/image";
+import { Button } from "./ui/MovingBorder";
 import { useScrollAnimation } from "./Tech";
 import { workExperience } from "@/app/constants/data";
-import { Button } from "./ui/MovingBorder";
-import Image from "next/image";
 
 const WorkExperience = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: false, amount: 0.1 });
+  const ref = useRef<HTMLElement>(null);
   const y = useScrollAnimation(ref);
+  const isInView = useInView(ref, { once: false, amount: 0.1 });
 
   const titleOpacity = useTransform(y, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
   const titleY = useTransform(
@@ -41,6 +41,7 @@ const WorkExperience = () => {
       },
     },
   };
+
   return (
     <section
       id="experience"
@@ -70,7 +71,7 @@ const WorkExperience = () => {
               key={w.id}
               duration={Math.floor(Math.random() * 10000) + 10000}
               borderRadius="1.75rem"
-              className=" flex-1 text-white border-neutral-200 dark:border-slate-800"
+              className="flex-1 text-white border-neutral-200 dark:border-slate-800"
             >
               <motion.div
                 variants={itemVariants}

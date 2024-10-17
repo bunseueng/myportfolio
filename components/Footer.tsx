@@ -2,9 +2,9 @@
 
 import React, { useRef } from "react";
 import { motion, useTransform } from "framer-motion";
+import { IconLocation } from "@tabler/icons-react";
 import { useScrollAnimation } from "./Tech";
 import MagicButton from "./ui/MagicButton";
-import { IconLocation } from "@tabler/icons-react";
 
 const Footer = () => {
   const ref = useRef<HTMLElement>(null);
@@ -32,11 +32,11 @@ const Footer = () => {
             <motion.h2 className="text-purple-300 font-black md:text-[60px] sm:text-[48px] xs:text-[40px] text-[30px] font-poppins">
               Get In Touch
             </motion.h2>
-            <motion.p className="text-center  text-md text-gray-400 uppercase font-semibold my-10 md:my-0">
-              I’m currently looking for any new opportunities, my inbox is
+            <motion.p className="text-center text-md text-gray-400 uppercase font-semibold my-10 md:my-0">
+              I&#39;m currently looking for any new opportunities, my inbox is
               always open. Whether you have a question or just want to say hi,
-              I’ll try my best to get back to you!
-            </motion.p>{" "}
+              I&#39;ll try my best to get back to you!
+            </motion.p>
             <a href="mailto:bunseueng@gmail.com">
               <MagicButton
                 title="Let's get in touch"

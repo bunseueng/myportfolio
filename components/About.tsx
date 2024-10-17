@@ -30,8 +30,15 @@ export default function Component() {
     ["50px", "0px", "0px", "-50px"]
   );
 
-  const imageY = useTransform(scrollYProgress, [0, 1], [0, -50]);
-  const imageRotate = useTransform(scrollYProgress, [0, 1], [0, 10]);
+  // Smoothed out image animations
+  const imageY = useSpring(useTransform(scrollYProgress, [0, 1], [0, -50]), {
+    stiffness: 100,
+    damping: 30,
+  });
+  const imageRotate = useSpring(
+    useTransform(scrollYProgress, [0, 1], [0, 10]),
+    { stiffness: 100, damping: 30 }
+  );
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -108,14 +115,14 @@ export default function Component() {
                 . My journey in web development started with a{" "}
                 <span className="text-[#64ffda]">
                   love for solving complex problems
-                </span>
+                </span>{" "}
                 through code, and that passion continues to drive me today.
               </motion.p>
               <motion.p variants={itemVariants} className="text-lg mb-4">
                 I specialize in building responsive, modern web applications
                 using{" "}
                 <span className="text-[#64ffda]">
-                  technologies like React, Next.js, and Node.js
+                  technologies like React, Next.js, Tailwind CSS and Node.js
                 </span>
                 . I enjoy{" "}
                 <span className="text-[#64ffda]">collaborating with teams</span>{" "}
