@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef } from "react";
-import { motion, useTransform } from "framer-motion";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { IconLocation } from "@tabler/icons-react";
 import { useScrollAnimation } from "./Tech";
 import MagicButton from "./ui/MagicButton";
@@ -10,7 +10,14 @@ const Footer = () => {
   const ref = useRef<HTMLElement>(null);
   const y = useScrollAnimation(ref);
 
-  const titleOpacity = useTransform(y, [0, 0.1, 0.9, 1], [0, 1, 1, 0]);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+
+  const springConfig = { stiffness: 100, damping: 30, restDelta: 0.001 };
+  const x = useSpring(scrollYProgress, springConfig);
+  const titleOpacity = useTransform(y, [0, 0.1, 0.9, 1], [0, 1, 1, 1]);
   const titleY = useTransform(
     y,
     [0, 0.1, 0.9, 1],
@@ -19,11 +26,20 @@ const Footer = () => {
 
   return (
     <footer
-      className="relative w-full flex flex-col items-center justify-center overflow-hidden py-20"
+      className="relative w-full flex flex-col items-center justify-center overflow-hidden py-20 z-1"
       id="contact"
       ref={ref}
     >
-      <div className="max-w-6xl mx-auto w-full px-4">
+      <motion.div
+        className="absolute inset-0 z-0 opacity-10"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, #64ffda 1px, transparent 1px), linear-gradient(to bottom, #64ffda 1px, transparent 1px)",
+          backgroundSize: "50px 50px",
+          x,
+        }}
+      />
+      <div className="max-w-6xl mx-auto w-full px-4 z-50">
         <div className="w-full">
           <motion.div
             style={{ opacity: titleOpacity, y: titleY }}

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import MouseTrackingBackground from "@/components/ui/BackgroundGradient";
 import { Roboto, Noto_Sans } from "next/font/google";
-import LoadingAnimation from "@/components/ui/Loading";
 
 const roboto = Roboto({
   weight: ["400", "700"],
@@ -72,13 +71,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${roboto} ${notoSans}`}>
       <body>
-        <LoadingAnimation>
-          <MouseTrackingBackground>
-            <main className="min-h-screen text-gray-100 selection:bg-teal-300 selection:text-teal-900">
-              {children}
-            </main>
-          </MouseTrackingBackground>
-        </LoadingAnimation>
+        <MouseTrackingBackground>
+          <main className="min-h-screen text-gray-100 selection:bg-teal-300 selection:text-teal-900">
+            {children}
+          </main>
+        </MouseTrackingBackground>
       </body>
     </html>
   );

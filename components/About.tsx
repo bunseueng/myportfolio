@@ -4,41 +4,30 @@ import React, { useRef, useEffect } from "react";
 import {
   motion,
   useInView,
-  useTransform,
   useScroll,
   useSpring,
   useAnimation,
 } from "framer-motion";
 import Image from "next/image";
-import { useScrollAnimation } from "./Tech";
 
-export default function Component() {
+export default function OptimizedAbout() {
   const ref = useRef<HTMLElement>(null);
   const controls = useAnimation();
   const isInView = useInView(ref, { once: false, amount: 0.1 });
-  const y = useScrollAnimation(ref);
 
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
   });
 
-  const titleOpacity = useTransform(y, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
-  const titleY = useTransform(
-    y,
-    [0, 0.2, 0.8, 1],
-    ["50px", "0px", "0px", "-50px"]
-  );
+  const springConfig = { stiffness: 100, damping: 30, restDelta: 0.001 };
+  const x = useSpring(scrollYProgress, springConfig);
 
-  // Smoothed out image animations
-  const imageY = useSpring(useTransform(scrollYProgress, [0, 1], [0, -50]), {
-    stiffness: 100,
-    damping: 30,
-  });
-  const imageRotate = useSpring(
-    useTransform(scrollYProgress, [0, 1], [0, 10]),
-    { stiffness: 100, damping: 30 }
-  );
+  useEffect(() => {
+    if (isInView) {
+      controls.start("visible");
+    }
+  }, [isInView, controls]);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -49,6 +38,7 @@ export default function Component() {
       },
     },
   };
+
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
     visible: {
@@ -57,18 +47,6 @@ export default function Component() {
       transition: { type: "spring", stiffness: 100 },
     },
   };
-
-  const springConfig = { stiffness: 100, damping: 30, restDelta: 0.001 };
-  const x = useSpring(
-    useTransform(scrollYProgress, [0, 1], [0, 1000]),
-    springConfig
-  );
-
-  useEffect(() => {
-    if (isInView) {
-      controls.start("visible");
-    }
-  }, [isInView, controls]);
 
   return (
     <section
@@ -82,12 +60,14 @@ export default function Component() {
           backgroundImage:
             "linear-gradient(to right, #64ffda 1px, transparent 1px), linear-gradient(to bottom, #64ffda 1px, transparent 1px)",
           backgroundSize: "50px 50px",
-          x: x,
+          x,
         }}
       />
       <div className="max-w-6xl mx-auto w-full px-4 relative z-10">
         <motion.div
-          style={{ opacity: titleOpacity, y: titleY }}
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
           className="mb-20"
         >
           <motion.p className="text-md text-gray-400 uppercase font-semibold">
@@ -177,10 +157,6 @@ export default function Component() {
                 variants={itemVariants}
                 initial="hidden"
                 animate={controls}
-                style={{
-                  y: imageY,
-                  rotate: imageRotate,
-                }}
               >
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-br from-cyan-400 to-purple-600 rounded-2xl transform rotate-6 scale-105"

@@ -14,7 +14,7 @@ const RecentProjects = () => {
   const isInView = useInView(ref, { once: true, amount: 0.1 });
   const y = useScrollAnimation(ref);
 
-  const titleOpacity = useTransform(y, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+  const titleOpacity = useTransform(y, [0, 0.2, 0.8, 1], [0, 1, 1, 1]);
   const titleY = useTransform(
     y,
     [0, 0.2, 0.8, 1],
@@ -70,12 +70,12 @@ const RecentProjects = () => {
         >
           {recentProjects.map((item) => (
             <motion.div
-              className="lg:min-h-[32.5rem] h-[25rem] flex items-center justify-center sm:w-96 w-[80vw]"
+              className=" sm:h-[41rem] h-[32rem] lg:min-h-[32.5rem] flex items-center justify-center sm:w-[510px] w-[80vw]"
               variants={itemVariants}
               key={item.id}
             >
               <PinContainer title={item.title} href={item.link}>
-                <div className="relative flex items-center justify-center sm:w-96 w-[80vw] overflow-hidden h-[20vh] lg:h-[30vh] mb-10">
+                <div className="relative flex items-center justify-center sm:w-[510px] w-[80vw] overflow-hidden sm:h-[40vh] h-[30vh] mb-10">
                   <div
                     className="relative w-full h-full overflow-hidden lg:rounded-3xl"
                     style={{ backgroundColor: "#13162D" }}

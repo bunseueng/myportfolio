@@ -12,7 +12,7 @@ const WorkExperience = () => {
   const y = useScrollAnimation(ref);
   const isInView = useInView(ref, { once: false, amount: 0.1 });
 
-  const titleOpacity = useTransform(y, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+  const titleOpacity = useTransform(y, [0, 0.2, 0.8, 1], [0, 1, 1, 1]);
   const titleY = useTransform(
     y,
     [0, 0.2, 0.8, 1],

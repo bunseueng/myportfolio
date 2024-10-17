@@ -38,7 +38,7 @@ export default function Tech() {
   const y = useScrollAnimation(ref);
   const isInView = useInView(ref, { amount: 0.1, once: true });
 
-  const titleOpacity = useTransform(y, [0, 0.5, 1], [1, 1, 0.5]);
+  const titleOpacity = useTransform(y, [0, 0.5, 1], [1, 1, 1]);
   const titleY = useTransform(y, [0, 0.5, 1], ["0px", "0px", "-30px"]);
 
   const containerVariants = {
@@ -85,7 +85,7 @@ export default function Tech() {
         </motion.div>
 
         <motion.div
-          className="flex flex-wrap justify-center gap-10 mt-14"
+          className="flex flex-wrap items-center justify-between gap-10 mt-14"
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}

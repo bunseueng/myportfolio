@@ -1,11 +1,11 @@
 "use client";
 
 import React from "react";
-import { IconBrandGithub } from "@tabler/icons-react";
-import Image from "next/image";
-import { FloatingNav } from "./ui/FloatingNavbar";
-import Link from "next/link";
 import { motion } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
+import { IconBrandGithub } from "@tabler/icons-react";
+import { FloatingNav } from "./ui/FloatingNavbar";
 
 const links = [
   { name: "About", link: "#about" },
@@ -14,21 +14,21 @@ const links = [
   { name: "Contact", link: "#contact" },
 ];
 
-const Navbar = () => {
+export default function Navbar() {
   return (
     <nav className="relative">
-      <div className="absolute inset-0 max-w-6xl mx-auto p-5">
+      <div className="absolute inset-0 max-w-6xl mx-auto py-5">
         <div className="flex items-center justify-between">
           <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
             className="z-[9999]"
           >
             <Link href="/" className="flex items-center cursor-pointer">
               <Image
                 src="/favicon.svg"
-                alt="img"
+                alt="Logo"
                 width={20}
                 height={20}
                 className="w-10 h-10 md:w-20 md:h-20"
@@ -39,12 +39,12 @@ const Navbar = () => {
             </Link>
           </motion.div>
           <motion.ul
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
             className="flex items-center gap-x-3 font-bold text-gray-200 cursor-pointer z-[9999]"
           >
-            <li className="hover:text-whiter md:pr-3">
+            <li className="hover:text-white md:pr-3">
               <a
                 target="_blank"
                 rel="noopener noreferrer"
@@ -69,6 +69,4 @@ const Navbar = () => {
       </div>
     </nav>
   );
-};
-
-export default Navbar;
+}
