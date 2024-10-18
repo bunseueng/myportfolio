@@ -26,7 +26,7 @@ const RecentProjects = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.05,
       },
     },
   };
@@ -39,7 +39,7 @@ const RecentProjects = () => {
       transition: {
         type: "spring",
         stiffness: 100,
-        damping: 10,
+        damping: 15,
       },
     },
   };
@@ -63,14 +63,14 @@ const RecentProjects = () => {
           </h2>
         </motion.div>
         <motion.div
-          className="flex flex-wrap items-center justify-center p-4 gap-16 mt-10"
+          className="flex flex-wrap items-center justify-center p-4 gap-x-4 md:gap-16 mt-10"
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
           {recentProjects.map((item) => (
             <motion.div
-              className=" sm:h-[41rem] h-[32rem] lg:min-h-[32.5rem] flex items-center justify-center sm:w-[510px] w-[80vw]"
+              className="sm:h-[41rem] h-[32rem] lg:min-h-[32.5rem] flex items-center justify-center sm:w-[510px] w-[80vw]"
               variants={itemVariants}
               key={item.id}
             >
@@ -113,22 +113,22 @@ const RecentProjects = () => {
                 </p>
 
                 <div className="flex items-center justify-between mt-7 mb-3">
-                  <div className="flex items-center">
+                  <div className="flex items-center relative">
                     {item.iconLists.map((icon, index) => (
                       <div
                         key={index}
-                        className="border border-white/[.2] rounded-full bg-black lg:w-10 lg:h-10 w-8 h-8 flex justify-center items-center"
+                        className="border border-white/[.2] rounded-full bg-black lg:w-10 lg:h-10 w-8 h-8 flex justify-center items-center relative"
                         style={{
                           transform: `translateX(-${5 * index + 2}px)`,
                         }}
                       >
                         <Image
                           src={icon}
-                          alt="icon5"
+                          alt={`icon${index + 1}`}
+                          width={50}
+                          height={50}
                           className="p-2"
-                          fill
-                          quality={75}
-                          style={{ objectFit: "cover" }}
+                          style={{ objectFit: "contain" }}
                         />
                       </div>
                     ))}
@@ -136,7 +136,7 @@ const RecentProjects = () => {
 
                   <Link
                     href={item.link}
-                    target={"_blank"}
+                    target="_blank"
                     className="flex justify-center items-center"
                   >
                     <p className="flex lg:text-xl md:text-xs text-sm text-purple">

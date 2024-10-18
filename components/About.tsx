@@ -1,89 +1,85 @@
 "use client";
 
-import React, { useRef, useEffect } from "react";
-import {
-  motion,
-  useInView,
-  useScroll,
-  useSpring,
-  useAnimation,
-} from "framer-motion";
+import React, { useRef, useEffect, useState } from "react";
+import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 
 export default function OptimizedAbout() {
   const ref = useRef<HTMLElement>(null);
-  const controls = useAnimation();
-  const isInView = useInView(ref, { once: false, amount: 0.1 });
-
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-
-  const springConfig = { stiffness: 100, damping: 30, restDelta: 0.001 };
-  const x = useSpring(scrollYProgress, springConfig);
+  const isInView = useInView(ref, { amount: 0.1, once: true });
+  const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
-    if (isInView) {
-      controls.start("visible");
+    if (isInView && !hasAnimated) {
+      setHasAnimated(true);
     }
-  }, [isInView, controls]);
+  }, [isInView, hasAnimated]);
 
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.03,
+        delayChildren: 0.05,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
+    hidden: { y: 10, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
-      transition: { type: "spring", stiffness: 100 },
+      transition: {
+        type: "spring",
+        stiffness: 300,
+        damping: 20,
+        duration: 0.2,
+      },
     },
   };
+
+  const technologies = [
+    "Next.js",
+    "Tailwind CSS",
+    "Node.js",
+    "TypeScript",
+    "MongoDB",
+    "Prisma",
+  ];
 
   return (
     <section
       id="about"
       ref={ref}
-      className="relative w-full min-h-screen flex flex-col justify-center items-center py-20"
+      className="relative w-full min-h-screen flex flex-col justify-center items-center pb-20 overflow-hidden"
     >
       <motion.div
-        className="absolute inset-0 z-0 opacity-10"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right, #64ffda 1px, transparent 1px), linear-gradient(to bottom, #64ffda 1px, transparent 1px)",
-          backgroundSize: "50px 50px",
-          x,
-        }}
-      />
-      <div className="max-w-6xl mx-auto w-full px-4 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="mb-20"
-        >
-          <motion.p className="text-md text-gray-400 uppercase font-semibold">
+        className="max-w-6xl mx-auto w-full px-4 relative z-10"
+        variants={containerVariants}
+        initial="hidden"
+        animate={hasAnimated ? "visible" : "hidden"}
+      >
+        <motion.div className="mb-20">
+          <motion.p
+            className="text-md text-gray-400 uppercase font-semibold"
+            variants={itemVariants}
+          >
             Introducing
           </motion.p>
-          <motion.h2 className="text-purple-300 font-black md:text-[60px] sm:text-[48px] xs:text-[40px] text-[30px] font-poppins">
+          <motion.h2
+            className="text-purple-300 font-black md:text-[60px] sm:text-[48px] xs:text-[40px] text-[30px] font-poppins"
+            variants={itemVariants}
+          >
             About Me.
           </motion.h2>
         </motion.div>
         <div className="max-w-6xl mx-auto mt-10">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              animate={controls}
               className="w-full md:w-[50%] text-[#8892b0]"
+              variants={containerVariants}
             >
               <motion.p variants={itemVariants} className="text-lg mb-4">
                 I&#39;m Eng Bunseu, a{" "}
@@ -127,45 +123,35 @@ export default function OptimizedAbout() {
                 Here are a few technologies I&#34;ve been working with recently:
               </motion.p>
               <motion.ul
-                variants={itemVariants}
+                variants={containerVariants}
                 className="grid grid-cols-2 list-disc text-sm pl-3 pt-3"
               >
-                <li>
-                  <span className="text-[#64ffda]">Next.js</span>
-                </li>
-                <li>
-                  <span className="text-[#64ffda]">Tailwind CSS</span>
-                </li>
-                <li>
-                  <span className="text-[#64ffda]">Node.js</span>
-                </li>
-                <li>
-                  <span className="text-[#64ffda]">TypeScript</span>
-                </li>
-                <li>
-                  <span className="text-[#64ffda]">MongoDB</span>
-                </li>
-                <li>
-                  <span className="text-[#64ffda]">Prisma</span>
-                </li>
+                {technologies.map((tech) => (
+                  <motion.li key={tech} variants={itemVariants}>
+                    <span className="text-[#64ffda]">{tech}</span>
+                  </motion.li>
+                ))}
               </motion.ul>
             </motion.div>
 
-            <div className="w-full md:w-[50%] flex justify-center md:justify-end mt-20 md:mt-0">
+            <motion.div
+              className="w-full md:w-[50%] flex justify-center md:justify-end mt-20 md:mt-0"
+              variants={containerVariants}
+            >
               <motion.div
                 className="relative w-64 h-64 md:w-80 md:h-80"
                 variants={itemVariants}
-                initial="hidden"
-                animate={controls}
+                whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
+                whileTap={{ scale: 0.97, transition: { duration: 0.2 } }}
               >
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-cyan-400 to-purple-600 rounded-2xl transform rotate-6 scale-105"
+                  className="absolute inset-0 bg-gradient-to-br from-cyan-400 to-purple-600 rounded-2xl"
                   animate={{
-                    scale: [1.05, 1.08, 1.05],
-                    rotate: [6, 8, 6],
+                    scale: [1.03, 1.05, 1.03],
+                    rotate: [2, 3, 2],
                   }}
                   transition={{
-                    duration: 5,
+                    duration: 2,
                     repeat: Infinity,
                     repeatType: "reverse",
                   }}
@@ -174,14 +160,15 @@ export default function OptimizedAbout() {
                   src="/myphoto.jpg"
                   alt="Eng Bunseu"
                   fill
+                  sizes="(max-width: 768px) 256px, 320px"
                   style={{ objectFit: "cover" }}
-                  className="rounded-2xl shadow-lg transform hover:scale-105 transition-transform duration-300"
+                  className="rounded-2xl shadow-lg"
                 />
               </motion.div>
-            </div>
+            </motion.div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

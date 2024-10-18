@@ -28,6 +28,10 @@ export default function SocialIconComponent() {
                   alt={link?.name}
                   width={50}
                   height={50}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                  }}
                 />
               </div>
             </motion.div>

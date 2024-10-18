@@ -85,7 +85,7 @@ export default function Tech() {
         </motion.div>
 
         <motion.div
-          className="flex flex-wrap items-center justify-between gap-10 mt-14"
+          className="flex flex-wrap items-center justify-center md:justify-between gap-10 mt-14"
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
