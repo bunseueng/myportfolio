@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import MouseTrackingBackground from "@/components/ui/BackgroundGradient";
 import { Roboto, Noto_Sans } from "next/font/google";
+import OptimizedPortfolio from "@/components/OptimizedComponent";
+import { FloatingNav } from "@/components/ui/FloatingNavbar";
 
 const roboto = Roboto({
   weight: ["400", "700"],
@@ -68,13 +70,24 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const links = [
+    { name: "About", link: "#about" },
+    { name: "Skills", link: "#skill" },
+    { name: "Project", link: "#project" },
+    { name: "Contact", link: "#contact" },
+  ];
   return (
-    <html lang="en" className={`${roboto} ${notoSans}`}>
+    <html lang="en" className={`${roboto.className} ${notoSans.className}`}>
       <body>
         <MouseTrackingBackground>
-          <main className="min-h-screen text-gray-100 selection:bg-teal-300 selection:text-teal-900">
-            {children}
-          </main>
+          <div className="relative min-h-screen">
+            <OptimizedPortfolio>
+              <main className="min-h-screen text-gray-100 selection:bg-teal-300 selection:text-teal-900">
+                {children}
+              </main>
+            </OptimizedPortfolio>
+            <FloatingNav navItems={links} />
+          </div>
         </MouseTrackingBackground>
       </body>
     </html>

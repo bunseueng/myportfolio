@@ -5,14 +5,6 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { IconBrandGithub } from "@tabler/icons-react";
-import { FloatingNav } from "./ui/FloatingNavbar";
-
-const links = [
-  { name: "About", link: "#about" },
-  { name: "Skills", link: "#skill" },
-  { name: "Project", link: "#project" },
-  { name: "Contact", link: "#contact" },
-];
 
 export default function Navbar() {
   return (
@@ -63,9 +55,6 @@ export default function Navbar() {
             </li>
           </motion.ul>
         </div>
-      </div>
-      <div className="container mx-auto px-4 flex items-center justify-end fixed top-0 left-0 right-0 z-50 h-20 bg-transparent">
-        <FloatingNav navItems={links} />
       </div>
     </nav>
   );
