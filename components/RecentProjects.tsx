@@ -82,18 +82,20 @@ const RecentProjects = () => {
                   >
                     <Image
                       src="/assets/project/bg.png"
-                      alt="bgimg"
+                      alt={`${item.title}`}
                       fill
-                      quality={75}
+                      quality={100}
                       style={{ objectFit: "cover" }}
                     />
                   </div>
                   <Image
                     src={item.img}
-                    alt="cover"
+                    alt={`${item.title}`}
                     fill
-                    quality={75}
-                    style={{ objectFit: "cover" }}
+                    quality={100}
+                    style={{
+                      objectFit: "cover",
+                    }}
                     className="z-10 absolute bottom-0 rounded-xl"
                   />
                 </div>
@@ -128,7 +130,7 @@ const RecentProjects = () => {
                           width={50}
                           height={50}
                           className="p-2"
-                          style={{ objectFit: "contain" }}
+                          style={{ objectFit: "cover" }}
                         />
                       </div>
                     ))}

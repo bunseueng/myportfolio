@@ -89,7 +89,7 @@ export const recentProjects = [
     id: 1,
     title: "MijuDramaInfo",
     description: "Explore the vibrant world of Asian dramas and movies at MijuDramaInfo (MDI). Discover in-depth insights, trending titles, and the latest news about your favorite shows and actors.",
-    img: "/assets/project/mijudrama.PNG",
+    img: "/assets/project/opengraph-image.png",
     iconLists: ["/assets/project/next.svg", "/assets/project/ts.svg", "/assets/project/nodejs.svg", "/assets/project/mongodb.svg", "/assets/project/nextauth.svg"],
     link: "https://mijudramainfo.vercel.app/"
   },
@@ -99,7 +99,7 @@ export const recentProjects = [
     description: "LUSISHOE is your go-to destination for stylish and high-quality footwear. Whether you're looking for casual sneakers, formal shoes, or trendy boots, LUSISHOE offers a curated collection of shoes to suit every occasion and style. Explore our diverse range and step up your shoe game with LUSISHOE.",
     img: "/assets/project/lusiecommerce.PNG",
     iconLists: ["/assets/project/next.svg", "/assets/project/ts.svg", "/assets/project/nodejs.svg", "/assets/project/mongodb.svg", "/assets/project/nextauth.svg"],
-    link: "https://lusiecommerce.vercel.app/",
+    link: "https://lusiecommerce.netlify.app/",
   },
   {
     id: 3,

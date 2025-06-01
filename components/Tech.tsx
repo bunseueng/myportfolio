@@ -2,10 +2,8 @@
 
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
-import dynamic from "next/dynamic";
 import { technologies } from "@/app/constants/data";
-
-const BallCanvas = dynamic(() => import("./ui/CanvasBall"), { ssr: false });
+import BallCanvas from "./ui/CanvasBall";
 
 export const useScrollAnimation = (ref: React.RefObject<HTMLElement>) => {
   const { scrollY } = useScroll();
