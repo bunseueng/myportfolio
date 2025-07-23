@@ -41,7 +41,10 @@ export default function OptimizedAbout() {
   };
 
   const technologies = [
+    "React.js",
     "Next.js",
+    "Vue.js",
+    "Nuxt.js",
     "Tailwind CSS",
     "Node.js",
     "TypeScript",

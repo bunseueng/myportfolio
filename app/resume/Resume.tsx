@@ -16,11 +16,19 @@ import Link from "next/link";
 export default function Resume() {
   return (
     <div className="min-h-screen bg-[#050d1a] py-12 px-4 sm:px-6 lg:px-8">
+      <Link href={"/"}>
+        <Button
+          variant="outline"
+          className="flex items-center space-x-2 px-4 py-2"
+        >
+          Back Home
+        </Button>
+      </Link>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="max-w-3xl mx-auto"
+        className="max-w-3xl mx-auto mt-4"
       >
         <Card className="bg-gray-800 shadow-xl">
           <CardHeader>
@@ -33,14 +41,22 @@ export default function Resume() {
           </CardHeader>
           <CardContent>
             <div className="text-center py-8">
-              <IconFileText className="mx-auto h-16 w-16 text-gray-400" />
-              <h3 className="mt-2 text-sm font-semibold text-gray-100">
+              <IconFileText className="mx-auto h-16 w-16 text-gray-400 mb-2" />
+              <Button
+                variant="outline"
+                className="flex items-center space-x-2 px-4 py-2"
+              >
+                <a href="/ENGBUNSEU.pdf" download>
+                  Download Resume
+                </a>
+              </Button>
+              {/* <h3 className="mt-2 text-sm font-semibold text-gray-100">
                 No resume available
               </h3>
               <p className="mt-1 text-sm text-gray-400">
                 I&#39;m currently updating my resume to reflect my latest
                 experiences and skills.
-              </p>
+              </p> */}
             </div>
             <div className="mt-6">
               <h4 className="text-lg font-semibold text-gray-100 mb-2">

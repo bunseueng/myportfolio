@@ -66,3 +66,48 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+.text-animation {
+  position: relative;
+  width: max-content;
+  padding-block: 2px;
+}
+
+.text-animation::before,
+.text-animation::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.text-animation::before {
+  background: linear-gradient(to right, #050d1a 20%, #000319 100%);
+  animation: typewriter 3s steps(40) 1.2s forwards;
+}
+
+.text-animation::after {
+  width: 0.125em;
+  background: #3b82f6;
+  animation: typewriter 3s steps(40) 1.2s forwards,
+  blink 500ms steps(40) infinite;
+}
+
+@keyframes typewriter {
+  to {
+    left: 100%
+  }
+}
+
+@keyframes blink {
+  to {
+    background: transparent;
+  }
+}
+
+
+.skills {
+  transition: width 4s;
+}

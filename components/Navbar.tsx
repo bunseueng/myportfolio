@@ -10,7 +10,7 @@ export default function Navbar() {
   return (
     <nav className="relative">
       <div className="absolute inset-0 max-w-6xl mx-auto py-5">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between px-4 md:px-0">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -34,13 +34,13 @@ export default function Navbar() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="flex items-center gap-x-3 font-bold text-gray-200 cursor-pointer z-[9999]"
+            className="flex items-center space-x-4 font-bold text-gray-200 cursor-pointer z-[9999]"
           >
             <li className="hover:text-white md:pr-3">
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://github.com/bunseujjy"
+                href="https://github.com/bunseueng"
                 className="flex items-center md:space-x-2"
               >
                 <IconBrandGithub />

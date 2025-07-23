@@ -1,32 +1,32 @@
 "use client";
 
-import React, { lazy, Suspense } from "react";
-import { TypewriterEffectSmooth } from "./ui/TypeWriter";
+import React from "react";
 import SocialIconComponent from "./ui/SocialIcon";
-
-const BackgroundBeams = lazy(() =>
-  import("./ui/BackgroundBeams").then((mod) => ({
-    default: mod.BackgroundBeams,
-  }))
-);
-
-const words = [
-  { text: "a", className: "text-[#8892b0]" },
-  { text: "Front-end", className: "text-[#8892b0]" },
-  { text: "Developer", className: "text-[#8892b0]" },
-  { text: "based", className: "text-[#8892b0]" },
-  { text: "in", className: "text-[#8892b0]" },
-  { text: "Cambodia.", className: "text-cyan-400 dark:text-cyan-400" },
-];
+import { IconChevronDown } from "@tabler/icons-react";
 
 const MemoizedSocialIconComponent = React.memo(SocialIconComponent);
 
 export default function Hero() {
+  const scrollToContent = () => {
+    const ele = document.getElementById("about");
+    if (ele) {
+      ele.scrollIntoView({
+        behavior: "smooth",
+      });
+    }
+  };
   return (
     <section className="relative w-full h-screen flex items-center justify-center overflow-hidden">
-      <Suspense fallback={<div className="absolute inset-0 bg-black" />}>
-        <BackgroundBeams className="absolute inset-0" />
-      </Suspense>
+      <div className="absolute bottom-4 flex items-center animate-bounce transform duration-100">
+        <button
+          type="button"
+          className="flex flex-col justify-center items-center"
+          onClick={scrollToContent}
+        >
+          <IconChevronDown size={50} className="text-cyan-400" />
+          Scroll to explore
+        </button>
+      </div>
       <div className="relative z-10 w-full max-w-6xl mx-auto px-6 md:px-6 md:py-24">
         <div className="flex flex-col md:flex-row items-center justify-between">
           <div className="w-full mb-8 md:mb-0">
@@ -36,7 +36,10 @@ export default function Hero() {
             <h1 className="font-bold text-[#ccd6f6] mb-1 text-4xl md:text-6xl lg:text-7xl">
               Eng Bunseu 👋
             </h1>
-            <TypewriterEffectSmooth words={words} />
+            <h1 className="text-animation text-[#8892b0] text-base sm:text-xl md:text-3xl font-bold text-center my-4">
+              a Front-end Developer based in{" "}
+              <span className="text-cyan-400">Cambodia.</span>
+            </h1>
             <p className="max-w-[540px] text-sm md:text-lg text-[#8892b0] mt-5 mb-10">
               I create beautiful, responsive, and user-friendly web
               applications. With 4 years of experience, I&#39;m passionate about
