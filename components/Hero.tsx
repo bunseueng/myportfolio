@@ -42,8 +42,9 @@ export default function Hero() {
             </h1>
             <p className="max-w-[540px] text-sm md:text-lg text-[#8892b0] mt-5 mb-10">
               I create beautiful, responsive, and user-friendly web
-              applications. With 4 years of experience, I&#39;m passionate about
-              turning ideas into reality through code.
+              applications. With 4 years of experience of builing personal
+              projects, I&#39;m passionate about turning ideas into reality
+              through code.
             </p>
             <MemoizedSocialIconComponent />
           </div>

@@ -105,24 +105,18 @@ export const TechSkills = {
 export const socialIcons = [
   {
     id: 1,
-    name: "Facebook",
-    icon: "/assets/social/facebook-icon.png",
-    url: "https://www.facebook.com/YuTuQJJ/",
-  },
-  {
-    id: 2,
     name: "Instragram",
     icon: "/assets/social/instagram.png",
     url: "https://www.instagram.com/bunseu_eng/",
   },
   {
-    id: 3,
+    id: 2,
     name: "Twitter",
     icon: "/assets/social/twitter-icon.png",
     url: "https://x.com/bunseu95355",
   },
   {
-    id: 4,
+    id: 3,
     name: "LinkedIn",
     icon: "/assets/social/linkedin-icon.png",
     url: "https://www.linkedin.com/in/eng-bunseu-6591a8333/",

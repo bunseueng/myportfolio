@@ -70,7 +70,7 @@ const RecentProjects = () => {
         >
           {recentProjects.map((item) => (
             <motion.div
-              className="sm:h-[34rem] h-[29rem] lg:h-[34rem] flex items-center justify-center sm:w-[510px] w-[80vw]"
+              className="sm:h-[34rem] h-[34rem] lg:h-[40rem] flex items-center justify-center sm:w-[510px] w-[80vw]"
               variants={itemVariants}
               key={item.id}
             >
