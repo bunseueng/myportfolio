@@ -37,7 +37,7 @@ export default function Hero() {
               Eng Bunseu 👋
             </h1>
             <h1 className="text-animation text-[#8892b0] text-base sm:text-xl md:text-3xl font-bold text-center my-4">
-              a Junior Fullstack Developer based in{" "}
+              a Junior Front-End Developer based in{" "}
               <span className="text-cyan-400">Cambodia.</span>
             </h1>
             <p className="max-w-[540px] text-sm md:text-lg text-[#8892b0] mt-5 mb-10">
